@@ -5,22 +5,25 @@ A dedicated service account is used for the deployment and the tokens not mounte
 
 ## Prerequisites
 - minikube installed
- - https://minikube.sigs.k8s.io/docs/start/
+  - https://minikube.sigs.k8s.io/docs/start/
 - Docker installed (Docker is used as driver for minikube)
- - https://docs.docker.com/engine/install/
+  - https://docs.docker.com/engine/install/
 
 
 ## Setup
 1. Ensure Docker daemon is started
-1. start minikube
+2. start minikube
 ````bash
 minikube start --driver=docker
 ````
-1. Deploy cluster
+3. Deploy cluster
+
 ````bash
 kubectl apply -R -f .
 ````
-1. As minikube is running in a Docker container, a tunnel must be created from the host to the container to access the node port. This command provide a URL to access the NGINX web service.
+
+4. As minikube is running in a Docker container, a tunnel must be created from the host to the container to access the node port. This command provide a URL to access the NGINX web service.
+
 ````bash
 minikube service nginx-service --url
 ````
